@@ -9,7 +9,7 @@
 namespace X1024\Laravel\Database\Eloquent;
 
 
-use X1024\Storage\StorageHelper;
+use X1024\Laravel\Storage\StorageHelper;
 
 trait CastsStorage
 {

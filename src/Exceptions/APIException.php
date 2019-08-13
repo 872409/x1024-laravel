@@ -11,7 +11,7 @@ namespace X1024\Laravel\Exceptions;
 use Exception;
 use Illuminate\Http\Request;
 use Throwable;
-use X1024\Http\APIResponse;
+use X1024\Laravel\Http\APIResponse;
 
 class APIException extends Exception
 {

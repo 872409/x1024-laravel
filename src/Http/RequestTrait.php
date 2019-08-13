@@ -4,7 +4,7 @@
 namespace X1024\Laravel\Http;
 
 
-use X1024\Utils\ClientInfo;
+use X1024\Laravel\Utils\ClientInfo;
 
 trait RequestTrait
 {

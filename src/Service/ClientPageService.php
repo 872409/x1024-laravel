@@ -8,7 +8,8 @@
 
 namespace X1024\Laravel\Services;
 
-use X1024\Utils\Common;
+
+use X1024\Laravel\Utils\Common;
 
 class ClientPageService extends ServiceBase
 {

@@ -13,7 +13,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Validation\ValidationException;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use X1024\Http\APIResponseHelper;
+use X1024\Laravel\Http\APIResponseHelper;
 
 class APIExceptionHandler
 {

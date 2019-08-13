@@ -8,7 +8,7 @@
 
 namespace App\Models\Casts;
 
-use X1024\Utils\TypeHelper;
+use X1024\Laravel\Utils\TypeHelper;
 
 trait CastsPrice
 {
