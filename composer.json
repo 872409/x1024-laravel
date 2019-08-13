@@ -1,0 +1,22 @@
+{
+  "name": "x1024/laravel",
+  "description": "laravel framework tools",
+  "type": "library",
+  "require": {
+    "php": "^7.1.3",
+    "laravel/framework": "5.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "X1024\\Laravel\\": "src"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "x1024",
+      "email": "872409@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev"
+}
