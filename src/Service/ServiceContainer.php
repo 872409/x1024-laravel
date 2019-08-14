@@ -4,6 +4,8 @@
 namespace X1024\Laravel\Services;
 
 
+use Closure;
+
 class ServiceContainer
 {
     protected $services = [];
@@ -22,16 +24,54 @@ class ServiceContainer
      */
     protected function registerServices($app)
     {
-        if ($this->services && is_array($this->services)) {
+        $services = $this->getRegisterServices();
 
-            foreach ($this->services as $service) {
-                $name = lcfirst(class_basename($service));
+        if ($services && is_array($services)) {
 
-                $app->singleton($name, function ($app) use ($service) {
-                    return new $service($app);
-                });
+            foreach ($services as $key => $service) {
+
+                if (is_string($key)) {
+                    $name = $key;
+
+                    if ($service instanceof Closure) {
+                        $concrete = $service;
+                    }
+
+
+                } else {
+                    $name = class_basename($service);
+                }
+
+                if (!isset($concrete)) {
+                    $concrete = function ($app) use ($service) {
+                        return new $service($app);
+                    };
+                }
+
+                $app->singleton($name, $concrete);
+
             }
         }
     }
 
+    protected function getRegisterServices()
+    {
+        return $this->services;
+    }
+
+    protected static function getService($name, $arguments)
+    {
+        return app($name, $arguments);
+    }
+
+
+    /**
+     * @param string $name
+     * @param array $arguments
+     * @return mixed
+     */
+    public static function __callStatic($name, $arguments)
+    {
+        return static::getService($name, $arguments);
+    }
 }
