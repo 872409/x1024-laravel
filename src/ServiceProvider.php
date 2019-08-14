@@ -7,6 +7,7 @@ use X1024\Laravel\Services\ServiceContainer;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
+    //$ php artisan vendor:publish --provider="X1024\\Laravel\\ServiceProvider" --tag=config
 
     /**
      * Bootstrap the application services.
@@ -47,7 +48,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $className = config('x1024.service.container');
         try {
             $obj = new $className();
-
+            
             if ($obj instanceof ServiceContainer) {
                 $obj->register($this->app);
             }

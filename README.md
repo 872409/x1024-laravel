@@ -19,6 +19,9 @@
 $ composer require "x1024/laravel"
 ```
 
+```shell script
+$ php artisan vendor:publish --provider="X1024\\Laravel\\ServiceProvider" --tag=config
+```
 
 ## License
 
