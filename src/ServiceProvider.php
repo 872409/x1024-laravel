@@ -3,6 +3,8 @@
 
 namespace X1024\Laravel;
 
+use X1024\Laravel\Services\ServiceContainer;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
 
@@ -42,6 +44,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function registerServices()
     {
+        $className = config('x1024.service.container');
+        try {
+            $obj = new $className();
 
+            if ($obj instanceof ServiceContainer) {
+                $obj->register($this->app);
+            }
+
+        } catch (\Exception $exception) {
+
+        }
     }
 }

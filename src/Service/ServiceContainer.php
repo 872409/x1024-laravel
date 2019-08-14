@@ -4,10 +4,8 @@
 namespace X1024\Laravel\Services;
 
 
-class ServiceContainer
+abstract class ServiceContainer
 {
-    static function register($app)
-    {
+    public abstract function register($app);
 
-    }
 }
