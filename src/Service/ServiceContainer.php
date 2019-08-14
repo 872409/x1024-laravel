@@ -30,7 +30,7 @@ class ServiceContainer
 
     /**
      */
-    public function register()
+    protected function register()
     {
         if ($singletons = $this->getSingletonRegisterServices()) {
             $this->registerServices($singletons, 'registerSingleton');

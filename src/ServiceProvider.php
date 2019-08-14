@@ -45,13 +45,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function registerServices()
     {
-        $className = config('x1024.service.container');
+        $serviceContainer = config('x1024.service.container');
         try {
-            $obj = new $className($this->app);
-            
-            if ($obj instanceof ServiceContainer) {
-                $obj->register();
-            }
+            $obj = new $serviceContainer($this->app);
+//
+//            if ($obj instanceof ServiceContainer) {
+//                $obj->register();
+//            }
 
         } catch (\Exception $exception) {
 
