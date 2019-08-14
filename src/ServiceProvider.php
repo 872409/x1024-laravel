@@ -23,7 +23,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             ], 'config');
 
 //            $this->commands([
-//                CodeModelsCommand::class,
 //            ]);
         }
     }
@@ -39,7 +38,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     }
 
     /**
-     * Register Model Factory.
+     * Register Services.
      *
      * @return void
      */
@@ -49,9 +48,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         try {
             $obj = new $serviceContainer($this->app);
 //
-//            if ($obj instanceof ServiceContainer) {
-//                $obj->register();
-//            }
+            if ($obj instanceof ServiceContainer) {
+                $obj->register();
+            }
 
         } catch (\Exception $exception) {
 

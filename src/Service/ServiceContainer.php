@@ -1,10 +1,7 @@
 <?php
 
-
 namespace X1024\Laravel\Services;
 
-
-use Closure;
 
 class ServiceContainer
 {
@@ -15,6 +12,8 @@ class ServiceContainer
      * @var \Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application $app
      */
     protected static $app;
+
+    protected static $_aliases = [];
 
 //    private $_singletonServices = [];
 
@@ -30,7 +29,7 @@ class ServiceContainer
 
     /**
      */
-    protected function register()
+    public function register()
     {
         if ($singletons = $this->getSingletonRegisterServices()) {
             $this->registerServices($singletons, 'registerSingleton');
@@ -42,6 +41,10 @@ class ServiceContainer
         }
     }
 
+    private function cacheAlias($alias, $name)
+    {
+        static::$_aliases[$alias] = $name;
+    }
 
     private function registerServices(array $services, string $registerMethod)
     {
@@ -49,14 +52,14 @@ class ServiceContainer
         foreach ($services as $key => $service) {
 
             if (is_string($key)) {
-
                 $name = $key;
-                if ($service instanceof Closure) {
-                    $concrete = $service;
-                }
-
+                $concrete = $service;
             } else {
-                $name = class_basename($service);
+                $name = $service;
+            }
+
+            if (($alias = class_basename($name)) != $name) {
+                $this->cacheAlias($alias, $name);
             }
 
             if (!isset($concrete)) {
@@ -92,7 +95,8 @@ class ServiceContainer
 
     protected static function getService($name, $arguments)
     {
-        return static::$app->makeWith($name, $arguments);
+        $_name = static::$_aliases[$name] ?? $name;
+        return static::$app->makeWith($_name, $arguments);
     }
 
 
