@@ -2,7 +2,10 @@
   "name": "x1024/laravel",
   "description": "laravel framework tools",
   "version": "0.1.5",
-  "keywords": ["laravel","tools"],
+  "keywords": [
+    "laravel",
+    "tools"
+  ],
   "type": "library",
   "require": {
     "php": "^7.1.3",
@@ -20,5 +23,12 @@
       "email": "872409@gmail.com"
     }
   ],
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "X1024\\Laravel\\ServiceProvider"
+      ]
+    }
+  }
 }
