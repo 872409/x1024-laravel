@@ -47,10 +47,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $className = config('x1024.service.container');
         try {
-            $obj = new $className();
+            $obj = new $className($this->app);
             
             if ($obj instanceof ServiceContainer) {
-                $obj->register($this->app);
+                $obj->register();
             }
 
         } catch (\Exception $exception) {

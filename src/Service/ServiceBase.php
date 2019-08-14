@@ -17,10 +17,19 @@ class ServiceBase
     use AuthTrait;
     use ExceptionTrait;
 
+    /**
+     * @var \Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application $app
+     */
+    protected $app;
     public $now;
 
-    public function __construct()
+    /**
+     * ServiceBase constructor.
+     * @param \Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application|null $app
+     */
+    public function __construct($app = null)
     {
+        $this->app = $app;
         $this->now = now();
     }
 

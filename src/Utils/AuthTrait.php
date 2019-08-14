@@ -4,18 +4,22 @@
 namespace X1024\Laravel\Utils;
 
 
-use App\Models\User;
+//use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 trait AuthTrait
 {
-    public function authUserID()
+    public function authUserID($guard = 'api')
     {
-        return Auth::guard('api')->id();
+        return Auth::guard($guard)->id();
     }
 
-    public function authUser(): ?User
+    /**
+     * @param string $guard
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     */
+    public function authUser($guard = 'api')
     {
-        return Auth::guard('api')->user();
+        return Auth::guard($guard)->user();
     }
 }
