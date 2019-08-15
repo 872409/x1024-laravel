@@ -5,12 +5,12 @@ namespace X1024\Laravel\Http;
 
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\JsonResponse as Response;
 
-class APIResponse extends JsonResponse
+class JSONResponse extends Response
 {
 
-    public function api($data = null, $message = 'ok', $errorCode = 1)
+    public function json($data = null, $message = 'ok', $errorCode = 1)
     {
         $json = [
             'code' => $errorCode,
@@ -26,12 +26,12 @@ class APIResponse extends JsonResponse
 
     public function error($message, $errorCode = -1, $data = null)
     {
-        return $this->api($data, $message, $errorCode);
+        return $this->json($data, $message, $errorCode);
     }
 
     public function errorSilent($message, $data = null)
     {
-        return $this->api($data, $message, -1000);
+        return $this->json($data, $message, -1000);
     }
 
     public function page($data)
@@ -42,7 +42,7 @@ class APIResponse extends JsonResponse
 
         $data = array_only($data, ['data', 'current_page', 'title', 'title_sub']);
 
-        return $this->api($data);
+        return $this->json($data);
     }
 
 
