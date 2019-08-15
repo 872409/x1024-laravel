@@ -14,8 +14,6 @@ use X1024\Laravel\Utils\AuthTrait;
 
 class ServiceBase
 {
-    use AuthTrait;
-    use ExceptionTrait;
 
     /**
      * @var \Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application $app
