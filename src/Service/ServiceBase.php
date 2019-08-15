@@ -9,8 +9,6 @@
 namespace X1024\Laravel\Services;
 
 
-use X1024\Laravel\Exceptions\ExceptionTrait;
-use X1024\Laravel\Utils\AuthTrait;
 
 class ServiceBase
 {

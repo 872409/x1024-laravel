@@ -6,11 +6,9 @@ namespace X1024\Laravel\Http;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\JsonResponse;
-use X1024\Laravel\Exceptions\ExceptionTrait;
 
 class APIResponse extends JsonResponse
 {
-    use ExceptionTrait;
 
     public function api($data = null, $message = 'ok', $errorCode = 1)
     {
