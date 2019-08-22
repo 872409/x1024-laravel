@@ -1,7 +1,6 @@
 {
   "name": "x1024/laravel",
   "description": "laravel framework tools",
-  "version": "0.1.13",
   "keywords": [
     "laravel",
     "tools"
@@ -23,7 +22,6 @@
       "email": "872409@gmail.com"
     }
   ],
-  "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
