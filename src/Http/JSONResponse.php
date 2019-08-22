@@ -17,7 +17,7 @@ class JSONResponse extends Response
             'msg'  => $message,
         ];
 
-        if ($data) {
+        if ($data !== null) {
             $json['data'] = $data;
         }
 

@@ -17,7 +17,7 @@ class AppException extends Exception
     public $app_code;
     public $is_json;
 
-    public function __construct($errors = null, $code = 1, $data = null, $is_json = false)
+    public function __construct($errors = null, $code = -1, $data = null, $is_json = false)
     {
         $this->errors = $errors;
         $this->data = $data;

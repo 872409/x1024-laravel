@@ -28,11 +28,7 @@ class JSONResponseHelper
 
     public static function exception(\Exception $exception)
     {
-        $data = null;
-        if ($exception instanceof AppException) {
-            $data = $exception->data;
-        }
-
+        $data = isset($exception->data) ? $exception->data : null;
         return self::error($exception->getMessage(), $exception->getCode(), $data);
     }
 }

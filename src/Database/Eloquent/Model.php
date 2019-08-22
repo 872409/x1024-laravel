@@ -31,4 +31,6 @@ class Model extends Eloquent
     {
         return new Builder($query);
     }
+
+
 }
