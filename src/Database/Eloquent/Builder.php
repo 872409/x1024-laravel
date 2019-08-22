@@ -55,11 +55,12 @@ class Builder extends \Illuminate\Database\Eloquent\Builder
     }
 
     /**
-     * @return \Illuminate\Database\Query\Builder|Builder
+     * @return Builder
      */
     public function lockForUpdate()
     {
-        return parent::lockForUpdate();
+        parent::lockForUpdate();
+        return $this;
     }
 
 }

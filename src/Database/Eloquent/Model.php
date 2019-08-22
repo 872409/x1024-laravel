@@ -23,6 +23,7 @@ class Model extends Eloquent
         return (new static)->newQuery();
     }
 
+    
     /**
      * @param \Illuminate\Database\Query\Builder $query
      * @return Eloquent|Builder
