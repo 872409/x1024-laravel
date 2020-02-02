@@ -1,7 +1,7 @@
 
 # X1024-Laravel
 
-v1.0.18
+v1.0.19
 
 
 [![Latest Stable Version](https://poser.pugx.org/x1024/laravel/v/stable.svg)](https://packagist.org/packages/x1024/laravel) 
