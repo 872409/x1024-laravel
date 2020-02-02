@@ -6,7 +6,7 @@
  * Time: 15:08
  */
 
-namespace App\Models\Casts;
+namespace X1024\Laravel\Database\Eloquent;
 
 use X1024\Laravel\Utils\TypeHelper;
 
